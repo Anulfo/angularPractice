@@ -9,6 +9,20 @@
     <div>
         <input type="text" ng-model="macaroni">
         <div>{{macaroni}}</div>
+
+        <input type="text" ng-model="searchText">
+    </div>
+
+    <div>
+        <ul ng-repeat="currentTask in todos | filter:searchText">
+            <li>{{currentTask.name}} <button ng-click="killTodo(currentTask)">Finish</button></li>
+        </ul>
+    </div>
+
+    <div> 
+        Grouped Tasks:
+        <select ng-model="theTodo" ng-options="value.name group by value.complete for value in todos">
+        </select>
     </div>
     </section>
 
